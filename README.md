@@ -4,13 +4,19 @@ Optimization code and visualizer to plan optimal ascent trajectory for arbitrary
 # To use this rocket flight optimizer, do the following steps:
 
 TLDR:
-1) Navigate to Rocket "Flight Simulator\x64\Debug" and open "SIMULATION_INPUTS.JSON" then set variables as desired (see below for restrictions).
-2) Navigate to Rocket "Flight Simulator\x64\Debug" and run "Rocket Flight Simulator.exe" to run the simulation.
+1) Navigate to Rocket "rocket_ascent_trajectory_optimizer\x64\Debug"
+2) Copy all contents and paste to "rocket_ascent_trajectory_optimizer"
+3) Navigate to "rocket_ascent_trajectory_optimizer\inputs" and edit "SIMULATION_INPUTS.JSON" with desired launch parameters.
+4) Navigate to "rocket_ascent_trajectory_optimizer" and run "Rocket Flight Simulator.exe"
+5) Simulation will open a window and display the live results. Press esc to exit.
+
+Alternatively:
+1) Navigate to "rocket_ascent_trajectory_optimizer\inputs" and edit "SIMULATION_INPUTS.JSON" with desired launch parameters.
+2) Navigate to "rocket_ascent_trajectory_optimizer" and open "Rocket Flight Simulator.sln" and run from within Visual Studio.
 
 # Detailed Instructions:
 
-1) Navigate to Rocket Flight Simulator\x64\Debug\SIMULATION_INPUTS.JSON
-2) You can modify the variables in the SIMULATION_INPUTS.JSON file to match your mission. 
+1) Navigate to "rocket_ascent_trajectory_optimizer\inputs" and edit "SIMULATION_INPUTS.JSON" with desired launch parameters.
 
 The file is setup by default for a Falcon 9 block 5 launch to a 500km orbit with 20000 kg of payload. The circularization burn is not 
 yet included with this tool. The program will open a window and display each orbit itteration and the current pitch over angle being tested, 
@@ -40,11 +46,11 @@ IMPORTANT! AVOID MODIFYING THE BELOW VARIABLES in SIMULATION_INPUTS.JSON AS THEY
 "R_earth": 6378000,
 "M_earth": 5.972e24
 
-3) Navigate to Rocket Flight Simulator\x64\Debug and run Rocket Flight Simulator.exe to run the simulation.
+2) Navigate to "rocket_ascent_trajectory_optimizer" and open "Rocket Flight Simulator.sln" and run from within Visual Studio.
 
-4) ESC closes the window.
+3) ESC closes the window.
 
-5) Assumptions:
+4) Assumptions:
 	a) The simulation accounts for drag and gravity.
 	b) The earth standard atmosphere model is used for calculating drag.
 	c) The thrust change as a function of altitude is modeled. It assumes engine thrust and mass flow rate vary linearly with throttle lever 
@@ -61,7 +67,6 @@ IMPORTANT! AVOID MODIFYING THE BELOW VARIABLES in SIMULATION_INPUTS.JSON AS THEY
 	g) Earth is spherical and has radius of 6378000 m
 	h) Simulation is shown in inertial reference frame, not rotational frame of earth. Therefore the initial simulated flight plot tracks horizontally 
 		at high speed. This speed is the boost that Earth's rotation gives the vehicle at launch.
-	i) 
 
 
 
