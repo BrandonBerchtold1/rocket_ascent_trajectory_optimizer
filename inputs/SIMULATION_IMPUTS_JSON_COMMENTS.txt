@@ -1,0 +1,41 @@
+{
+  "circular_orbit_altitude":  1000000,//In m above surface of earth. If set too low, sim will fail to achieve orbit due to rocket thrust being too low.
+  "inclination": 43,//Target orbit inclination
+  "latitude": 43,//Launch site latitude
+  "stage_1_engine_count": 9,//[NA] Number of engines on stage 1
+  "stage_2_engine_count": 1,//[NA] Number of engines on stage 2
+  "frontal_area": 10.7521,//[m^2] Vehicle frontal area (used for drag force calculation)
+  "frontal_area_stage_2": 10.7521,//[m^2] Vehicle frontal area for 2nd sage flight phase (used for drag force calculation)
+  "m_dot": 305,//[kg/s] Per engine mass flow rate
+  "ve": 2951,//[m/s] Velocity of rocket nozzle exhaust gases at nozzle exit plane
+  "ae": 0.9,//[m^2] Rocket nozzle exit plane area (per a single engine)
+  "pe": 40000,//[Pa] Rocket nozzle exit plane gas pressure
+  "m_dot_stage_2": 287,//[kg/s] Per engine mass flow rate
+  "ve_stage_2": 3351,//[m/s] Velocity of rocket nozzle exhaust gases at nozzle exit plane
+  "ae_stage_2": 4.9,//[m^2] Rocket nozzle exit plane area (per a single engine)
+  "pe_stage_2": 3900,//[Pa] Rocket nozzle exit plane gas pressure
+  "Q_max_throttle_threshold": 30000,//[Pa] Maximum allowed dynamic pressure on vehicle during ascent before engine is throttled down to "Max_Q_throttle setting"
+  "Max_Q_throttle_setting": 0.7,//[NA] Thrust level during max Q throttle down
+  "pitch_over_angle": 0.5,//[deg] Initial pitch over angle simulation starts at (typically set to 0.1 but cannot be zero)
+  "pitch_over_start_time": 4.5, //[sec] Time after T=0 at which the pitch over manouver begins
+  "pitch_over_duration": 5.0, //[sec] Time to pitch over from initial heading at T=0 to target "pitch_over_angle"
+  "pitch_over_hold_time": 10, //[sec] Time vehicle heading is held at "pitch_over_angle". If set to zero, the vehicle will not have changed heading enough for velocity vector to match target heading closely enough
+  "stage_1_wet_mass": 433100, //410900, //[kg] Stage 1 initial mass with propellant
+  "stage_1_dry_mass": 25600, //[kg] Stage 1 initial mass without propellant (excludes stage 2 mass)
+  "stage_2_wet_mass": 96570, //[kg] Stage 2 initial mass with propellant
+  "stage_2_dry_mass": 3900, //[kg] Stage 2 initial mass without propellant
+  "payload_mass": 0, //[kg] Payload mass
+  "dt": 0.005, //[sec] Simulation timestep. 0.005 is good. 0.0005 is minimum that works, highest accuracy. 0.01 accumulates approximately 2.5% error relative to 0.0005 but is faster
+
+  //GENERALLY DO NOT CHANGE
+  "heading": 90, //[deg] Initial heading the vehicle will have at T=0. This is in degrees so 90 is pointing vertically up to the sky
+  "initial_position_x": 0, //[m] Initial position is at Earth surface at x = 0 at T=0
+  "initial_position_y": 6378000, //[m] Initial position is at Earth surface at x = 0 at T=0
+  "initial_velocity_x": 0.0, //[m/s] Initial velocity is zero at T=0
+  "initial_velocity_y": 0.0, //[m/s] Initial velocity is zero at T=0
+  "initial_acceleration_x": 0.0, //[m/s^2] Initial acceleration is zero at T=0
+  "initial_acceleration_y": 0.0, //[m/s^2] Initial acceleration is zero at T=0
+  "throttle": 1.0, //[NA] Engine throttle from 0 to 100% power where 0 is 0% and 1 is 100%
+  "R_earth": 6378000, //[m] Earth radius (can be changed to simulate different planets, but atmosphere model will still be earth standard atmosphere
+  "M_earth": 5.972e24 //[kg] Earth mass (can also be changed to simulate different planets)
+}
