@@ -338,7 +338,7 @@ void orbit_sim::run() {
 
     double delta_pitch_scale = 0.050;
     double perigee1 = perigee;
-    
+
     while (window.isOpen()) {
         while (delta_pitch_scale > 0.00001)
         {
@@ -367,6 +367,8 @@ void orbit_sim::run() {
                 delta_pitch_scale = delta_pitch_scale * 0.5;
             }
         }
+
+        itteration_complete = true;
 
         if (perigee > 0)
             converged = true;
@@ -472,9 +474,15 @@ void orbit_sim::update_text(double pitch_over_angle, double apogee, double perig
         window.draw(text9);
     }
 
-    if (converged == false)
+    if (converged == false && itteration_complete == true)
     {
-        //failed to achieve orbit
+        sf::Text text9(font, "Failed to achieve orbit!!! Vehicle TWR likely too low.");
+
+        text9.setFont(font);
+        text9.setCharacterSize(30);  // Set default size
+        text9.setFillColor(sf::Color::Red); // Default text color
+        text9.setPosition({ 100, 340 }); // Default position
+        window.draw(text9);
     }
 
     oss.str("");// Clear the string buffer

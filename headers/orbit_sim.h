@@ -73,6 +73,7 @@ public:
     float target_circular_orbit = 0;
     bool converged = false;
     bool is_propellant_left_over = true;
+    bool itteration_complete = false;
 
 private:
     void handle_events();
