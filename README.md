@@ -52,19 +52,26 @@ IMPORTANT! AVOID MODIFYING THE BELOW VARIABLES in SIMULATION_INPUTS.JSON AS THEY
 
 4) Assumptions:
 	a) The simulation accounts for drag and gravity.
+	
 	b) The earth standard atmosphere model is used for calculating drag.
+	
 	c) The thrust change as a function of altitude is modeled. It assumes engine thrust and mass flow rate vary linearly with throttle lever 
 		(which is a poor assumption and should be corrected to use the isentropic gas expansion equations).
+	
 	d) Drag coefficient is assumed to be:
 		0.15 for mach_number < 0.6
 		0.5 * mach_number - 0.15 for mach_number < 1.2
 		-0.33333 * mach_number + 0.85 for mach_number < 1.8
 		-0.03125 * mach_number + .30625 for mach_number < 5.0
 		0.15 for mach_number >= 5.0
+	
 	e) Thrust throttle changes are instantaneous currently. Ramp function should be used for better accuracy.
+	
 	f) Max Q throttling is allowed and is set by using Q_max_throttle_threshold and Max_Q_throttle_setting. If Q exceeds Q_max_throttle_threshold,
 		throttle is set to Max_Q_throttle_setting until Q returns below Q_max_throttle_threshold.
+	
 	g) Earth is spherical and has radius of 6378000 m
+	
 	h) Simulation is shown in inertial reference frame, not rotational frame of earth. Therefore the initial simulated flight plot tracks horizontally 
 		at high speed. This speed is the boost that Earth's rotation gives the vehicle at launch.
 
