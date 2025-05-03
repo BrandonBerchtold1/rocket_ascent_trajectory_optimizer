@@ -75,6 +75,60 @@ IMPORTANT! AVOID MODIFYING THE BELOW VARIABLES in SIMULATION_INPUTS.JSON AS THEY
 	h) Simulation is shown in inertial reference frame, not rotational frame of earth. Therefore the initial simulated flight plot tracks horizontally 
 		at high speed. This speed is the boost that Earth's rotation gives the vehicle at launch.
 
+5) Notes:
 
+	a) I did a time step sensitivity analysis and the results are shown below:
+		
+		dt = 0.1 -> Apogee = 500632m, Perigee = -1.085e-6m
+		
+		dt = 0.01 -> Apogee = 500277m, Perigee = 265617m
+		
+		dt = 0.001 -> Apogee = 500101m, Perigee = 271368m
+		
+		dt = 0.0005 -> Apogee = 500021m ,Perigee = 272445m
+		
+		dt = 0.0001 -> CODE FAILS (Likely the position change is too small to be stored in the position variable, so rocket never moves. Solution is to non-dimensionalize all math or use larger variable types.)
+		
+		Conclusion is that results converge around dt = 0.001 and solution is sufficiently fast while not risking dealing with data precision issues, so dt = 0.001 is recommended.
 
-
+	b) Flight dynamics insights:
+	
+	Pitch over angle: higher angle = shallower ascent
+	
+	Pitch over start time: later start time = steeper ascent
+	
+	Pitch over duration: longer duration = steeper ascent
+	
+	Thrust to weight ratio: higher = steeper ascent
+	
+	c) Future work:
+	
+		c1) 3D Earth with google earth style zoom and graphics
+		
+		c2) Drag pin to launch site plus type in latitude and longitude
+		
+		c3) Simulate cross winds
+		
+		c4) Optimizer for any orbit (not just circular)
+		
+		c5) Add plane change and bi-elliptic manouvers
+		
+		c6) Non-hot stage option
+		
+		c7) Render plume and exhaust
+		
+		c8) Render launch pad?
+		
+		c9) Non-dimensionalize all the math!!
+		
+		c10) Keep relevant for real rocket launch tool. Need reliability.
+		
+		c11) Variable Earth gravity map.
+		
+		c12) Measure orbit oblateness influence on satellite over long period of time. Need simulation to be stable over hundreds or thousands of orbits.
+		
+		c13) Error bars on all outputs.
+		
+		c14) High altitude drag models (for sun induced atmosphere swelling, solar wind drag, etc).
+	
+	
