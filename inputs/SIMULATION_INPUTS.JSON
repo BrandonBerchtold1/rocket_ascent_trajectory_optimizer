@@ -1,5 +1,5 @@
 {
-  "circular_orbit_altitude":  150000,
+  "circular_orbit_altitude":  500000,
   "inclination": 43,
   "latitude": 43,
   "stage_1_engine_count": 9,
